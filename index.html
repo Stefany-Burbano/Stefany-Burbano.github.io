@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vedant Bhardwaj</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="topbar">
+    <nav class="nav">
+      <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="CV_Vedant_Bhardwaj.pdf">CV</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="code.html">Codes</a>
+  <button id="themeToggle" class="iconbtn" aria-label="Toggle dark mode" title="Toggle theme">
+    <span id="themeIcon" aria-hidden="true">🌙</span>
+  </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-text">
+        <h1 class="name">Vedant Bhardwaj</h1>
+        <p class="welcome">Welcome to my website!</p>
+
+        <p>
+          I am a PhD candidate in Economics at <strong>Universidad Carlos III de Madrid (UC3M)</strong>.
+          My research is in econometrics, with a focus on inequality measurement and semiparametric methods.
+        </p>
+
+        <p>
+          You can download my complete CV <a href="CV_Vedant_Bhardwaj.pdf" target="_blank" rel="noopener">here</a>.
+        </p>
+
+        <p>
+          I will be on the <strong>2026 / 2027</strong> academic job market.
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <img src="dp.jpeg" alt="Vedant Bhardwaj" />
+      </div>
+    </section>
+
+    <!-- Center mail icon -->
+    <div class="mail">
+      <a class="mailbtn" href="mailto:vbhardwa@eco.uc3m.es" aria-label="Email Vedant">
+        ✉️
+      </a>
+    </div>
+
+    <footer class="footer">
+      © <span id="year"></span> Vedant Bhardwaj. Last updated: January 27, 2026.
+    </footer>
+  </main>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // theme toggle with persistence
+    const root = document.documentElement;
+    const btn = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+
+    function setTheme(theme) {
+      if (theme === "dark") {
+        root.classList.add("dark");
+        icon.textContent = "☀️";
+      } else {
+        root.classList.remove("dark");
+        icon.textContent = "🌙";
+      }
+      localStorage.setItem("theme", theme);
+    }
+
+    // initialize theme
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setTheme(saved ? saved : (prefersDark ? "dark" : "light"));
+
+    btn.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      setTheme(isDark ? "light" : "dark");
+    });
+  </script>
+
+</body>
+</html>
+</body>
+</html>
