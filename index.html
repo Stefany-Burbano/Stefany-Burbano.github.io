@@ -1,100 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stefany Burbano</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stefany Burbano — About</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
+  <header class="masthead" style="--banner:url('assets/img/banner-about.jpg');">
+    <div class="topnav">
+      <div class="topnav-inner">
+        <a class="brand" href="index.html">Stefany Burbano</a>
 
-  <!-- NAV -->
-  <header class="topbar">
-    <nav class="nav">
-      <div class="nav-right">
-    <a href="index.html">Home</a>
-    <a href="CV_Stefany_Burbano.pdf">CV</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="code.html">Codes</a>
-  <button id="themeToggle" class="iconbtn" aria-label="Toggle dark mode" title="Toggle theme">
-    <span id="themeIcon" aria-hidden="true">🌙</span>
-  </button>
+        <button id="navToggle" class="navbtn" aria-controls="navLinks" aria-expanded="false">
+          Menu
+        </button>
+
+        <nav id="navLinks" class="navlinks" aria-label="Primary navigation">
+          <a href="index.html">About</a>
+          <a href="research.html">Research</a>
+          <a href="teaching.html">Teaching</a>
+          <a href="cv.html">CV</a>
+        </nav>
       </div>
-    </nav>
-  </header>
-
-  <!-- MAIN -->
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero-text">
-        <h1 class="name">Stefany Burbano</h1>
-        <p class="welcome">Welcome to my website!</p>
-
-        <p>
-          I am a PhD candidate in Finance at <strong>Maastricht University</strong>.
-          I am also fellow at DNB.
-          My research is real estate finance, and banking.
-        </p>
-
-        <p>
-          You can download my complete CV <a href="CV_Stefany_Burbano.pdf" target="_blank" rel="noopener">here</a>.
-        </p>
-
-        <p>
-          I will be on the <strong>2027 / 2028</strong> academic job market.
-        </p>
-      </div>
-
-      <div class="hero-photo">
-        <img src="db.jpg" alt="Stefany Burbano" />
-      </div>
-    </section>
-
-    <!-- Center mail icon -->
-    <div class="mail">
-      <a class="mailbtn" href="mailto:stefany.morenoburbano@maastrichtuniversity.nl" aria-label="Email Vedant">
-        ✉️
-      </a>
     </div>
 
-    <footer class="footer">
-      © <span id="year"></span> Stefany Burbano. Last updated: January 27, 2026.
-    </footer>
+    <div class="banner-caption">Quindio - Colombia</div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <h1 class="page-title">About</h1>
+
+      <div class="content">
+        <div class="about-grid">
+          <div>
+            <!-- you already have db.jpg in the repo; keep it or replace -->
+            <img class="profile" src="db.jpg" alt="Stefany Burbano" />
+          </div>
+
+          <div>
+            <div class="section-heading">Welcome!</div>
+            <p style="margin-top:0; font-size:12px;">
+              I am a PhD candidate at the School of Business and Economics of Maastricht University
+              - Netherlands and fellow at De Nederlandsche Bank.
+            </p>
+            <p style="font-size:12px;">
+              My research interests involve climate finance, banking, insurance and industrial organization.
+            </p>
+          </div>
+        </div>
+
+        <div class="logo-row">
+          <div>
+            <!-- upload your UM logo to assets/img/logo-um.png -->
+            <img class="logo" src="assets/img/logo-um.png" alt="Maastricht University" />
+          </div>
+
+          <div class="center-block">
+            <div style="font-weight:700;">stefany.morenoburbano[at]maastrichtuniversity.nl</div>
+            <div class="small-muted" style="margin-top:6px;">
+              Tongersestraat 53, 6211 LM Maastricht, The Netherlands
+            </div>
+          </div>
+
+          <div>
+            <!-- upload MCRE logo to assets/img/logo-mcre.png -->
+            <img class="logo" src="assets/img/logo-mcre.png" alt="Maastricht Center for Real Estate" />
+          </div>
+        </div>
+
+        <div class="site-footer">
+          © Stefany Burbano
+        </div>
+      </div>
+    </div>
   </main>
-
-  <script>
-    // footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // theme toggle with persistence
-    const root = document.documentElement;
-    const btn = document.getElementById("themeToggle");
-    const icon = document.getElementById("themeIcon");
-
-    function setTheme(theme) {
-      if (theme === "dark") {
-        root.classList.add("dark");
-        icon.textContent = "☀️";
-      } else {
-        root.classList.remove("dark");
-        icon.textContent = "🌙";
-      }
-      localStorage.setItem("theme", theme);
-    }
-
-    // initialize theme
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(saved ? saved : (prefersDark ? "dark" : "light"));
-
-    btn.addEventListener("click", () => {
-      const isDark = root.classList.contains("dark");
-      setTheme(isDark ? "light" : "dark");
-    });
-  </script>
-
 </body>
 </html>
-</body>
-</html>
+
