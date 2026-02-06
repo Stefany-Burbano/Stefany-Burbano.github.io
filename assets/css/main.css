@@ -1,12 +1,74 @@
+
 :root{
+  /* Base */
   --bg: #ffffff;
   --text: #111827;
   --muted: #6b7280;
-  --accent: #1f2a5a;          /* close to your dark navy heading */
-  --maxw: 920px;             /* content column width like Google Sites */
+
+  /* Brand / headings */
+  --accent: #1f2a5a;            /* dark navy like your Google Sites headings */
+
+  /* Surfaces & borders */
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+
+  /* Links */
+  --link: #1f2a5a;
+  --link-hover: #0f1b43;
+
+  /* Buttons */
+  --btn-bg: #0f172a;
+  --btn-text: #ffffff;
+
+  /* Nav (on banner) */
+  --nav-text: rgba(255,255,255,.95);
+  --nav-text-hover: #ffffff;
+  --navbtn-bg: rgba(255,255,255,.12);
+  --navbtn-border: rgba(255,255,255,.25);
+
+  /* Mobile dropdown panel */
+  --nav-panel: rgba(15,23,42,.85);
+  --nav-panel-border: rgba(255,255,255,.18);
+
+  /* Layout */
+  --maxw: 920px;                 /* content column width like Google Sites */
   --navh: 64px;
+
+  /* Misc */
+  --focus: 0 0 0 3px rgba(31,42,90,.25);
 }
 
+/* ---------- Theme tokens (Dark) ---------- */
+/* Toggle by adding class="dark" on <html> (via your JS) */
+html.dark{
+  --bg: #0b1220;
+  --text: #e5e7eb;
+  --muted: #a7b0bf;
+
+  /* Slightly brighter accent for readability on dark background */
+  --accent: #93a4ff;
+
+  --card-bg: #0f172a;
+  --border: rgba(148,163,184,.18);
+
+  --link: #93a4ff;
+  --link-hover: #c7d2fe;
+
+  --btn-bg: #111b33;
+  --btn-text: #ffffff;
+
+  --nav-text: rgba(255,255,255,.92);
+  --nav-text-hover: #ffffff;
+  --navbtn-bg: rgba(255,255,255,.14);
+  --navbtn-border: rgba(255,255,255,.22);
+
+  --nav-panel: rgba(2,6,23,.88);
+  --nav-panel-border: rgba(148,163,184,.22);
+
+  --focus: 0 0 0 3px rgba(147,164,255,.25);
+}
+
+/* ---------- Base ---------- */
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 body{
@@ -17,7 +79,21 @@ body{
   line-height: 1.6;
 }
 
-a{ color: inherit; }
+/* Better default selection */
+::selection{ background: rgba(31,42,90,.18); }
+html.dark ::selection{ background: rgba(147,164,255,.22); }
+
+/* Links */
+a{ color: var(--link); }
+a:hover{ color: var(--link-hover); }
+
+/* Accessibility: visible focus */
+:focus-visible{
+  outline: none;
+  box-shadow: var(--focus);
+  border-radius: 8px;
+}
+
 .container{
   width: min(var(--maxw), calc(100% - 40px));
   margin: 0 auto;
@@ -58,7 +134,7 @@ a{ color: inherit; }
 }
 
 .brand{
-  color: white;
+  color: var(--nav-text-hover);
   text-decoration:none;
   font-weight: 700;
   letter-spacing: .2px;
@@ -71,24 +147,41 @@ a{ color: inherit; }
 }
 
 .navlinks a{
-  color: white;
+  color: var(--nav-text);
   text-decoration:none;
   font-size: 13px;
   font-weight: 600;
   opacity: .95;
 }
 
-.navlinks a:hover{ opacity: 1; text-decoration: underline; }
+.navlinks a:hover{
+  opacity: 1;
+  text-decoration: underline;
+  color: var(--nav-text-hover);
+}
 
 .navbtn{
   display:none;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.25);
-  color: white;
+  background: var(--navbtn-bg);
+  border: 1px solid var(--navbtn-border);
+  color: var(--nav-text-hover);
   padding: 8px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
+
+/* Dark mode toggle button (add in HTML inside nav) */
+.themebtn{
+  background: var(--navbtn-bg);
+  border: 1px solid var(--navbtn-border);
+  color: var(--nav-text-hover);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+}
+.themebtn:hover{ filter: brightness(1.05); }
 
 .banner-caption{
   position:absolute;
@@ -96,7 +189,7 @@ a{ color: inherit; }
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  color: white;
+  color: var(--nav-text-hover);
   font-size: 12px;
   font-weight: 600;
   opacity: .9;
@@ -136,6 +229,7 @@ a{ color: inherit; }
   display:block;
 }
 
+/* Typography helpers */
 .section-heading{
   font-weight: 800;
   margin: 0 0 6px;
@@ -148,7 +242,7 @@ a{ color: inherit; }
 
 .hr{
   height: 1px;
-  background: #1f2a5a;
+  background: var(--accent);
   opacity: .6;
   margin: 14px 0 18px;
 }
@@ -170,6 +264,12 @@ a{ color: inherit; }
   margin: 0 auto;
 }
 
+/* Optional: keep logos readable in dark mode */
+html.dark .logo{
+  filter: brightness(0) invert(1);
+  opacity: .92;
+}
+
 .center-block{
   text-align:center;
   font-size: 13px;
@@ -187,14 +287,19 @@ a{ color: inherit; }
 .paper p{
   margin: 0;
   font-size: 12px;
-  color: #374151;
+  color: var(--text);
+  opacity: .9;
 }
+
+/* Lists */
+ul, ol{ color: var(--text); }
+li{ font-size: 12px; }
 
 /* CV button + embed */
 .btn{
   display:inline-block;
-  background: #0f172a;
-  color: white;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   text-decoration:none;
   padding: 10px 14px;
   border-radius: 10px;
@@ -203,13 +308,22 @@ a{ color: inherit; }
 }
 .btn:hover{ filter: brightness(.95); }
 
+/* Optional: inline “card” surface if you later need it */
+.card{
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
 .pdf{
   margin-top: 16px;
   width: 100%;
   height: 760px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow:hidden;
+  background: var(--card-bg);
 }
 
 /* footer */
@@ -226,6 +340,7 @@ a{ color: inherit; }
   .banner-caption{ display:none; }
 
   .navbtn{ display:inline-block; }
+
   .navlinks{
     display:none;
     position:absolute;
@@ -234,8 +349,8 @@ a{ color: inherit; }
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    background: rgba(15,23,42,.85);
-    border: 1px solid rgba(255,255,255,.18);
+    background: var(--nav-panel);
+    border: 1px solid var(--nav-panel-border);
     padding: 12px;
     border-radius: 14px;
     backdrop-filter: blur(10px);
@@ -255,3 +370,7 @@ a{ color: inherit; }
   .pdf{ height: 620px; }
 }
 
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+}
