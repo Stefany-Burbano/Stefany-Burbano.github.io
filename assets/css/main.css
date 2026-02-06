@@ -102,7 +102,7 @@ a:hover{ color: var(--link-hover); }
 /* ===== Masthead / Banner ===== */
 .masthead{
   position: relative;
-  height: 320px; /* similar to Google Sites banner height */
+  height: 220px; /* similar to Google Sites banner height */
   background-image: var(--banner);
   background-size: cover;
   background-position: center;
@@ -185,7 +185,7 @@ a:hover{ color: var(--link-hover); }
 
 .banner-caption{
   position:absolute;
-  right: 24px;
+  right: 48px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
