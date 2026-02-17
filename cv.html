@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
   <title>Stefany Burbano — CV</title>
+
   <link rel="stylesheet" href="assets/css/main.css" />
   <script defer src="assets/js/main.js"></script>
 </head>
 
 <body>
-  <header class="masthead" style='background-image: url("assets/img/Riohacha.jpg");'>
+  <header class="masthead" style='--banner: url("assets/img/banner-cv.jpg");'>
     <div class="topnav">
       <div class="topnav-inner">
         <a class="brand" href="index.html">Stefany Burbano</a>
@@ -23,11 +25,15 @@
           <a href="research.html">Research</a>
           <a href="teaching.html">Teaching</a>
           <a href="cv.html">CV</a>
+
+          <button id="themeToggle" class="themebtn" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+          </button>
         </nav>
       </div>
     </div>
 
-    <div class="banner-caption">Madrid - Spain</div>
+    <div class="banner-caption">CV</div>
   </header>
 
   <main class="page">
@@ -35,16 +41,19 @@
       <h1 class="page-title">CV</h1>
 
       <div class="content" style="text-align:center;">
-        <p style="font-size:12px; color:#374151;">
-          Last update: <span style="font-weight:700;">January 2026</span>
+        <p class="small-muted" style="margin-top:0;">
+          Last update: <strong>January 2026</strong>
         </p>
 
-        <!-- Put your PDF here: assets/CV_Stefany_Burbano.pdf -->
-        <p style="margin: 14px 0 0;">
-          <a class="btn" href="assets/CV_Stefany_Burbano.pdf" target="_blank" rel="noopener">
-            Download CV (PDF)
+        <!-- Google Drive placeholder -->
+        <p style="margin: 12px 0 0;">
+          <a class="btn" href="https://drive.google.com/FILE_ID_HERE" target="_blank" rel="noopener">
+            View / Download CV (Google Drive)
           </a>
         </p>
+
+        <!-- Optional: local PDF fallback (if you want to keep a PDF in the repo)
+             Put it at assets/CV_Stefany_Burbano.pdf and uncomment below.
 
         <div class="pdf">
           <object data="assets/CV_Stefany_Burbano.pdf" type="application/pdf" width="100%" height="100%">
@@ -54,13 +63,11 @@
             </p>
           </object>
         </div>
+        -->
 
-        <div class="site-footer">
-          © Stefany Burbano
-        </div>
+        <div class="site-footer">© Stefany Burbano</div>
       </div>
     </div>
   </main>
 </body>
 </html>
-
