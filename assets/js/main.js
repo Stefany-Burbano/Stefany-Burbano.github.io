@@ -1,24 +1,14 @@
 (function () {
-  // ===== Mobile nav toggle =====
+  // Mobile nav toggle
   const navBtn = document.getElementById("navToggle");
   const nav = document.getElementById("navLinks");
 
   if (navBtn && nav) {
     navBtn.addEventListener("click", () => {
       nav.classList.toggle("open");
-      const open = nav.classList.contains("open");
-      navBtn.setAttribute("aria-expanded", String(open));
+      navBtn.setAttribute("aria-expanded", String(nav.classList.contains("open")));
     });
 
-    // close on nav link click (mobile)
-    nav.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        nav.classList.remove("open");
-        navBtn.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    // close on outside click
     document.addEventListener("click", (e) => {
       const clickedInside = nav.contains(e.target) || navBtn.contains(e.target);
       if (!clickedInside) {
@@ -28,7 +18,7 @@
     });
   }
 
-  // ===== Theme toggle (dark mode) + persistence =====
+  // Theme toggle
   const root = document.documentElement;
   const themeBtn = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("themeIcon");
@@ -50,20 +40,7 @@
 
   if (themeBtn) {
     themeBtn.addEventListener("click", () => {
-      const isDark = root.classList.contains("dark");
-      applyTheme(isDark ? "light" : "dark");
+      applyTheme(root.classList.contains("dark") ? "light" : "dark");
     });
   }
-
-  // ===== Optional: close other desplegables when one opens (accordion behavior) =====
-  // If you prefer multiple open at once, remove this block.
-  document.querySelectorAll("details.paper").forEach(d => {
-    d.addEventListener("toggle", () => {
-      if (d.open) {
-        document.querySelectorAll("details.paper").forEach(other => {
-          if (other !== d) other.open = false;
-        });
-      }
-    });
-  });
 })();
