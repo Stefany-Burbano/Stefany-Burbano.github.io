@@ -102,10 +102,11 @@ a:hover{ color: var(--link-hover); }
 /* ===== Masthead / Banner ===== */
 .masthead{
   position: relative;
-  height: 220px; /* similar to Google Sites banner height */
-  background-image: var(--banner, none);
+  height: 340px;                 /* was ~220/320 — increase */
+  background-image: var(--banner);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* subtle dark overlay for readability */
@@ -336,7 +337,7 @@ li{ font-size: 12px; }
 
 /* ===== Responsive ===== */
 @media (max-width: 820px){
-  .masthead{ height: 260px; }
+  .masthead{ height: 240px; }
   .banner-caption{ display:none; }
 
   .navbtn{ display:inline-block; }
