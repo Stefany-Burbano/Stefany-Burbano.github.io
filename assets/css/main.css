@@ -103,7 +103,7 @@ a:hover{ color: var(--link-hover); }
 .masthead{
   position: relative;
   height: 220px; /* similar to Google Sites banner height */
-  background-image: var(--banner);
+  background-image: var(--banner, none);
   background-size: cover;
   background-position: center;
 }
