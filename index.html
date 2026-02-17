@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
   <title>Stefany Burbano — About</title>
+
   <link rel="stylesheet" href="assets/css/main.css" />
   <script defer src="assets/js/main.js"></script>
 </head>
 
 <body>
-  <header class="masthead" style='background-image: url("assets/img/Eje_cafetero.jpg");'>
+  <header class="masthead" style='--banner: url("assets/img/banner-about.jpg");'>
     <div class="topnav">
       <div class="topnav-inner">
         <a class="brand" href="index.html">Stefany Burbano</a>
@@ -23,10 +25,9 @@
           <a href="research.html">Research</a>
           <a href="teaching.html">Teaching</a>
           <a href="cv.html">CV</a>
-          
-          <button id="themeToggle" class="themebtn" type="button" 
-                  aria-label="Toggle dark mode" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">🌙</span>
+
+          <button id="themeToggle" class="themebtn" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
           </button>
         </nav>
       </div>
@@ -40,28 +41,74 @@
       <h1 class="page-title">About</h1>
 
       <div class="content">
+        <!-- ABOUT INTRO -->
         <div class="about-grid">
           <div>
-            <!-- you already have db.jpg in the repo; keep it or replace -->
+            <!-- Keep db.jpg in root, or move it to assets/img and change src -->
             <img class="profile" src="db.jpg" alt="Stefany Burbano" />
           </div>
 
           <div>
             <div class="section-heading">Welcome!</div>
-            <p style="margin-top:0; font-size:12px;">
+            <p>
               I am a PhD candidate at the School of Business and Economics of Maastricht University
-              - Netherlands and fellow at De Nederlandsche Bank.
+              (Netherlands) and fellow at De Nederlandsche Bank.
             </p>
-            <p style="font-size:12px;">
-              My research interests involve climate finance, real estate, banking, and insurance markets.
+            <p>
+              My research interests involve climate finance, banking, insurance and industrial organization.
             </p>
           </div>
         </div>
 
+        <!-- COPY OF WORK IN PROGRESS ON ABOUT -->
+        <div class="section-block">
+          <h2>Work in progress</h2>
+          <div class="hr"></div>
+
+          <details class="paper">
+            <summary>
+              <span>Climate Risk and the Insurability of Commercial Real Estate</span>
+              <span class="paper-meta">WIP</span>
+            </summary>
+            <div class="paper-body">
+              <p>
+                <strong>Abstract (placeholder):</strong>
+                Add the abstract here. This paper studies how extreme weather events and forward-looking climate risk
+                measures affect commercial property insurance costs. The empirical design uses stacked DiD / event-study
+                style estimators and heterogeneity by wind intensity and portfolio concentration.
+              </p>
+
+              <div class="paper-links">
+                <a href="#" target="_blank" rel="noopener">PDF (placeholder)</a>
+                <a href="#" target="_blank" rel="noopener">Slides (placeholder)</a>
+                <a href="#" target="_blank" rel="noopener">SSRN (placeholder)</a>
+              </div>
+            </div>
+          </details>
+
+          <details class="paper">
+            <summary>
+              <span>Are climate related risks priced in corporate loan interest rates?</span>
+              <span class="paper-meta">WIP</span>
+            </summary>
+            <div class="paper-body">
+              <p>
+                <strong>Abstract (placeholder):</strong>
+                Add the abstract here. This project examines whether climate-related risk is priced in corporate loan
+                rates and explores transmission channels (direct damages, disruptions, bank beliefs, borrower default risk).
+              </p>
+
+              <div class="paper-links">
+                <a href="#" target="_blank" rel="noopener">Working paper (placeholder)</a>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- LOGOS pinned at bottom -->
         <div class="logo-row">
           <div>
-            <!-- upload your UM logo to assets/img/logo-um.png -->
-            <img class="logo" src="assets/img/logo-um.jpeg" alt="Maastricht University" />
+            <img class="logo" src="assets/img/logo-um.png" alt="Maastricht University" />
           </div>
 
           <div class="center-block">
@@ -72,17 +119,13 @@
           </div>
 
           <div>
-            <!-- upload MCRE logo to assets/img/logo-mcre.png -->
-            <img class="logo" src="assets/img/logo-mcre.jpg" alt="Maastricht Center for Real Estate" />
+            <img class="logo" src="assets/img/logo-mcre.png" alt="Maastricht Center for Real Estate" />
           </div>
         </div>
 
-        <div class="site-footer">
-          © Stefany Burbano
-        </div>
+        <div class="site-footer">© Stefany Burbano</div>
       </div>
     </div>
   </main>
 </body>
 </html>
-
