@@ -1,31 +1,34 @@
 (function () {
   // ===== Mobile nav toggle =====
-  const btn = document.getElementById("navToggle");
+  const navBtn = document.getElementById("navToggle");
   const nav = document.getElementById("navLinks");
 
-  if (btn && nav) {
-    btn.addEventListener("click", () => {
+  if (navBtn && nav) {
+    navBtn.addEventListener("click", () => {
       nav.classList.toggle("open");
       const open = nav.classList.contains("open");
-      btn.setAttribute("aria-expanded", String(open));
+      navBtn.setAttribute("aria-expanded", String(open));
     });
 
+    // close on nav link click (mobile)
     nav.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
         nav.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
+        navBtn.setAttribute("aria-expanded", "false");
       });
     });
 
+    // close on outside click
     document.addEventListener("click", (e) => {
-      if (!nav.contains(e.target) && !btn.contains(e.target)) {
+      const clickedInside = nav.contains(e.target) || navBtn.contains(e.target);
+      if (!clickedInside) {
         nav.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
+        navBtn.setAttribute("aria-expanded", "false");
       }
     });
   }
 
-  // ===== Theme toggle (dark mode) =====
+  // ===== Theme toggle (dark mode) + persistence =====
   const root = document.documentElement;
   const themeBtn = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("themeIcon");
@@ -41,8 +44,6 @@
     localStorage.setItem("theme", theme);
   }
 
-  // Initial theme:
-  // 1) saved preference, else 2) system preference
   const saved = localStorage.getItem("theme");
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   applyTheme(saved ? saved : (prefersDark ? "dark" : "light"));
@@ -53,4 +54,16 @@
       applyTheme(isDark ? "light" : "dark");
     });
   }
+
+  // ===== Optional: close other desplegables when one opens (accordion behavior) =====
+  // If you prefer multiple open at once, remove this block.
+  document.querySelectorAll("details.paper").forEach(d => {
+    d.addEventListener("toggle", () => {
+      if (d.open) {
+        document.querySelectorAll("details.paper").forEach(other => {
+          if (other !== d) other.open = false;
+        });
+      }
+    });
+  });
 })();
