@@ -98,9 +98,8 @@ a:hover{ color: var(--link-hover); }
 
 /* ===== Masthead / Banner ===== */
 .masthead{
-  position: relative;
-  height: 420px;                 /* bigger banner */
-  background-image:  var(--banner, none);
+  background-color: #cbd5e1;         /* fallback if banner missing */
+  background-image: var(--banner, none);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
