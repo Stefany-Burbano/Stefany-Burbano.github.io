@@ -100,7 +100,7 @@ a:hover{ color: var(--link-hover); }
 .masthead{
   position: relative;
   height: 420px;                 /* bigger banner */
-  background-image: var(--banner);
+  background-image:  var(--banner, none);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
